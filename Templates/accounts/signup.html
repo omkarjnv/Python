@@ -1,0 +1,103 @@
+<html>
+{% load static %}
+{% block content %}
+<head><!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign-Up</title>
+
+  </head>
+<body>
+
+ <div class="navbar-fixed">
+    <nav class="blue">
+      <div class="container">
+        <div class="nav-wrapper" >
+          <a href="#home" class="brand-logo" >BMS Q&A</a>
+          <a href="#" data-activates="mobile-nav" class="button-collapse">
+            <i class="material-icons">menu</i>
+          </a>
+  <!--NEEDS CHANGES-->        <ul class="right hide-on-med-and-down">
+              {% if user.is_authenticated %}
+            <li>
+              <p> {{user.username}}</p>
+            </li>
+
+          {% endif %}
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'accounts:ques_list' %}">Student</a>
+            </li>
+            <li>
+              <a href="#popular">Teacher</a>
+            </li>
+            <li>
+              <a href="#gallery">Sign-Up</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <ul class="side-nav" id="mobile-nav">
+    <li>
+      <a href="#home">Home</a>
+    </li>
+    <li>
+      <a href="#search">Student</a>
+    </li>
+    <li>
+      <a href="#popular">Teacher</a>
+    </li>
+    <li>
+      <a href="#gallery">Sign-Up</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+
+ <div >
+     {%load crispy_forms_tags%}
+
+<div class="container">
+  <h1 class="center">
+    Sign-Up
+
+  </h1>
+  <form class="pad" action="" method="post" >
+    {% csrf_token %}
+{{ form|crispy}}
+    <div class="center">
+    <input class="btn waves-effect " type="submit" value="SignUp" />
+</div>
+
+
+</form>
+</div>
+
+
+</div>
+
+
+
+ </div>
+
+
+{% endblock %}
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="{% static 'css/materialize.min.css' %}" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav class="blue">
+      <div class="container">
+        <div class="nav-wrapper" >
+          <a href="#home" class="brand-logo" >BMS Q&A</a>
+          <a href="#" data-activates="mobile-nav" class="button-collapse">
+            <i class="material-icons">menu</i>
+          </a>
+  <!--NEEDS CHANGES-->        <ul class="right hide-on-med-and-down">
+              {% if user.is_authenticated %}
+            <li>
+              <p> {{user.username}}</p>
+            </li>
+
+          {% endif %}
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'accounts:ques_list' %}">Student</a>
+            </li>
+            <li>
+              <a href="#popular">Teacher</a>
+            </li>
+              <li>
+              <a href="{% url 'accounts:teacher_signup' %}">Teacher-Sign-Up</a>
+            </li>
+           <li>
+              <a href="{% url 'accounts:student_signup' %}">Student-Sign-Up</a>
+            </li>
+            <li>
+              <a  href="{% url 'accounts:login' %}">Login</a>
+            </li>
+          <li >
+               <form id="logout" class="modal-trigger" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                 <input class="btn blue" type="submit" value="Logout"/>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <ul class="side-nav" id="mobile-nav">
+    <li>
+      <a href="#home">Home</a>
+    </li>
+    <li>
+      <a href="#search">Student</a>
+    </li>
+    <li>
+      <a href="#popular">Teacher</a>
+    </li>
+    <li>
+      <a href="#gallery">Sign-Up</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+<!--NEEDS CHANGES-->
+  <section class="slider" height="100">
+    <ul class="slides">
+      <li>
+        <img src="{% static 'images/bmsce.jpg' %}" alt="">
+        
+      </li>
+      <li>
+        <img src="{% static 'images/bms2.jpg' %}" alt="">
+        
+      </li>
+      <li>
+        <img src="{% static 'images/bmsce1.jpg' %}" alt="">
+        
+      </li>
+    </ul>
+  </section>
+  <br>
+  <div class="card red darken-2">
+    <div class="card-content white-text">
+      <p style="font-size:32px" >Departments</p>
+    </div>
+  </div>
+  
+    
+
+  <div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="{% static 'images/cs.jpg' %}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES--> <a href="{% url 'students:cse_questions' %}"><span class="card-title center" style="font-size: 400%; padding-top:15%">Computer Science</span></a>
+        
+      </div>
+    </div>
+  </div>
+<div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="{% static 'images/civil.jpg' %}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES-->     <a href="{% url 'students:civil_questions' %}"><span class="card-title center" style="font-size: 400%; padding-top:15%">Civil</span></a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="{% static 'images/ec.jpg' %}">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES-->   <a href="{% url 'students:electronics_questions' %}"><span class="card-title center" style="font-size: 400%; padding-top:15%">Electronics</span></a>
+        
+      </div>
+    </div>
+  </div>
+
+ <!--logout-->
+  <form id="logout" class="modal-trigger" action="{% url 'accounts:logout' %}" method="post">
+                {% csrf_token %}
+                <button  type="submit">Logout</button>
+              </form>
+  
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+  <script>
+    $(document).ready(function () {
+      $('.button-collapse').sideNav();
+
+    });
+
+    $('.slider').slider({
+        indicators: false,
+        height: 500,
+        transition: 500,
+        interval: 3000
+      });
+
+     $('.modal').modal({
+     dismissible:true,
+     induration:300,
+     outDuration:200,
+     ready: function(modal,trigger){
+      console.log('Modal opened' ,modal,trigger);
+      }
+      });
+</script>
+</body>
+
+</html>

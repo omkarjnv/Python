@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link type="text/css" rel="stylesheet" href="css/main.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <!--Let browser know website is optimized for mobile-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+</head>
+
+<body>
+  <div class="navbar-fixed">
+    <nav class="blue">
+      <div class="container">
+        <div class="nav-wrapper" >
+          <a href="#home" class="brand-logo" >BMS Q&A</a>
+          <a href="#" data-activates="mobile-nav" class="button-collapse">
+            <i class="material-icons">menu</i>
+          </a>
+  <!--NEEDS CHANGES-->        <ul class="right hide-on-med-and-down">
+            <li>
+              <a href="#home">Home</a>
+            </li>
+            <li>
+              <a href="#search">Student</a>
+            </li>
+            <li>
+              <a href="#popular">Teacher</a>
+            </li>
+            <li>
+              <a href="#gallery">Sign-Up</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <ul class="side-nav" id="mobile-nav">
+    <li>
+      <a href="#home">Home</a>
+    </li>
+    <li>
+      <a href="#search">Student</a>
+    </li>
+    <li>
+      <a href="#popular">Teacher</a>
+    </li>
+    <li>
+      <a href="#gallery">Sign-Up</a>
+    </li>
+    <li>
+      <a href="#contact">Contact</a>
+    </li>
+  </ul>
+<!--NEEDS CHANGES-->
+  <section class="slider" height="100">
+    <ul class="slides">
+      <li>
+        <img src="images/bmsce.jpg" alt="">
+        
+      </li>
+      <li>
+        <img src="images/bms2.jpg" alt="">
+        
+      </li>
+      <li>
+        <img src="images/bmsce1.jpg" alt="">
+        
+      </li>
+    </ul>
+  </section>
+  <br>
+  <div class="card red darken-2">
+    <div class="card-content white-text">
+      <p style="font-size:32px" >Departments</p>
+    </div>
+  </div>
+  
+    
+
+  <div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="images/cs.jpg">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES--> <a href="#cse"><span class="card-title center" style="font-size: 400%; padding-top:15%">Computer Science</span></a>
+        
+      </div>
+    </div>
+  </div>
+<div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="images/civil.jpg">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES-->     <a href="#cse"><span class="card-title center" style="font-size: 400%; padding-top:15%">Civil</span></a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="card horizontal">
+    <div class="card-image">
+      <img height="300"  src="images/ec.jpg">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+  <!--NEEDS CHANGES-->   <a href="#cse"><span class="card-title center" style="font-size: 400%; padding-top:15%">Electronics</span></a>  
+        
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('.button-collapse').sideNav();
+
+    });
+
+    $('.slider').slider({
+        indicators: false,
+        height: 500,
+        transition: 500,
+        interval: 3000
+      });
+  </script>
+</body>
+
+</html>
